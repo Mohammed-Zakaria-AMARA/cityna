@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cityna Report Form</title>
+  <link rel="stylesheet" href="./CSS/citizen-form-style.css" />
+  <link rel="stylesheet" href="./CSS/global-styling.css">
+</head>
+<body>
+  <header>
+    <a href="./citizen-form.html" class="logo">CITYNA</a>
+    <div class="buttons">
+      <a href="./log-in.html" class="btn primaryBtn">Log in</a>
+      <a href="./sign-up.html" class="btn secondaryBtn">Sign Up</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="form-container">
+      <h1>Report Form</h1>
+      <form action="submit_report.php" method="POST" enctype="multipart/form-data">
+        
+        <!-- ALL ORIGINAL FIELDS PRESERVED - JUST ADDED NAME ATTRIBUTES -->
+        <label>Full Name</label>
+        <input type="text" name="full_name" placeholder="Placeholder" required />
+
+        <label>Numero de Telephone</label>
+        <input type="tel" name="phone_number" placeholder="Placeholder" required />
+
+        <!-- MODIFIED CAMERA SECTION TO ACTUAL FILE INPUT -->
+        <label>Real-Time Picture</label>
+        <input type="file" name="report_image" accept="image/*" capture="environment" required />
+
+        <label>Commune</label> 
+        <input type="text" name="commune" value="Mostaganem" required /> 
+
+        <label>Wilaya</label>
+        <input type="text" name="wilaya" value="Mostaganem" required />
+
+        <label>Geolocation</label>
+        <input type="text" name="geolocation" placeholder="Use my location" />
+
+        <label>Description</label>
+        <textarea name="description" placeholder="for more context"></textarea>
+
+        <label for="category">Catégorie</label>
+          <select id="category" name="category" required>
+            <option value="">-- Sélectionnez une catégorie --</option>
+            <option value="Sécurité Publique">Sécurité Publique</option>
+            <option value="Propreté et environnement">Propreté et environnement</option>
+            <option value="Gaz">Gaz</option>
+            <option value="Routes et voirie">Routes et voirie</option>
+            <option value="Électricité">Électricité</option>
+            <option value="Eau">Eau</option>
+          </select>
+
+        <label for="subcategory">Sous-catégorie</label>
+          <select id="subcategory" name="subcategory" required>
+          <option value="">-- Sélectionnez une sous-catégorie --</option>
+        </select>
+
+        <button type="submit" class="btn primaryBtn submit">Envoyer</button>
+      </form>
+      <!-- <form>
+        <label>Full Name</label>
+        <input type="text" placeholder="Placeholder" />
+
+        <label>Numero de Telephone</label>
+        <input type="tel" placeholder="Placeholder" />
+
+        <div class="camera-section">
+          <p>Real-Time Picture</p>
+          <div class="camera-icon">📷</div>
+        </div>
+
+        <label>Commune</label> 
+        <input type="text" value="Mostaganem" required /> 
+
+        <label>Wilaya</label>
+        <input type="text" value="Mostaganem" required />
+
+        <label>Geolocation</label>
+        <input type="text" placeholder="Use my location" />
+
+        <label>Description</label>
+        <textarea placeholder="for more context"></textarea>
+
+        <label for="category">Catégorie</label>
+          <select id="category" name="category" required>
+            <option value="">-- Sélectionnez une catégorie --</option>
+            <option value="Sécurité Publique">Sécurité Publique</option>
+            <option value="Propreté et environnement">Propreté et environnement</option>
+            <option value="Gaz">Gaz</option>
+            <option value="Routes et voirie">Routes et voirie</option>
+            <option value="Électricité">Électricité</option>
+            <option value="Eau">Eau</option>
+          </select>
+
+        <label for="subcategory">Sous-catégorie</label>
+          <select id="subcategory" name="subcategory" required>
+          <option value="">-- Sélectionnez une sous-catégorie --</option>
+        </select>
+
+
+        <button type="submit" class="btn primaryBtn submit">Envoyer</button>
+      </form> -->
+    </div>
+  </main>
+  <script src="./JS/form-dropdown.js"></script>
+</body>
+</html>

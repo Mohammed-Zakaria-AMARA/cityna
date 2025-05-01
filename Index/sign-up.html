@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In</title>
+  <link rel="stylesheet" href="./CSS/sign-up-style.css" />
+  <link rel="stylesheet" href="./CSS/global-styling.css">
+</head>
+<body>
+  <header>
+    <a href="./citizen-form.html" class="logo">CITYNA</a>
+    <div class="buttons">
+      <a href="./log-in.html" class="btn primaryBtn">Log in</a>
+      <a href="./sign-up.html" class="btn secondaryBtn">Sign Up</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="form-container">
+      <h1>Sign Up</h1>
+      <form method="POST" action="signup.php">
+        <label>Full Name</label>
+        <input type="text" name="fullname" placeholder="Enter your full name" required />
+
+        <label>Email Address</label>
+        <input type="email" name="email" placeholder="Enter your email" required />
+
+        <label>Phone Number</label>
+        <input type="tel" name="phone" placeholder="Enter your phone number" required />
+
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Create a password" required />
+
+        <input type="hidden" name="role" value="citizen" />
+
+        <button type="submit" class="btn primaryBtn submit">Confirmer</button>
+
+        <div class="extra-links">
+          <a href="./log-in.html">You have an account? Go to Log in</a>
+        </div>
+      </form>
+    </div>
+    <div>
+        <img src="./Pictures/sign-up.png" alt="">
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,98 @@
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px ;
+    margin-bottom: 46px;
+  }
+
+  main h1{
+    align-self: center;
+  }
+  
+  main .form-container{
+    background-color: rgb(255, 255, 255);
+    border-radius: 12px;
+    width: 448px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 39px;
+  }
+
+  div.form-container form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  form label {
+    position: relative;
+    top: 8px;
+  }
+
+  input, select, textarea {
+    width: 100%;
+    height: 56px;
+    border-radius: 12px;
+    border: 1px solid #E1E1E1;
+    padding-left: 24px;
+    font-size: 21px;
+    font-weight: 400;
+  }
+
+  textarea{
+    padding-top: 15px;
+    min-height: 80px;
+  }
+  
+  input::placeholder,
+  textarea::placeholder {
+    color: #E1E1E1;
+  }
+  
+  select option:first-child {
+    color: #E1E1E1;
+  }
+
+  .camera-section {
+    display: flex;
+    flex-direction: row;
+    gap: 80px;
+    align-items: center;
+    color: #888;
+    justify-content: center;
+  }
+  
+  .camera-icon {
+    background: #fafafb;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 20px;
+    margin-top: 5px;
+  }
+  
+  .submit {
+    width: 177px;
+    align-self: center;
+    margin-top: 24px;
+  }
+
+  .extra-links {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .extra-links a {
+    font-size: 14px;
+    color: #346357;
+    text-decoration: underline;
+    font-weight: 500;
+  }
+
+  img{
+    width: 598px;
+  }
+

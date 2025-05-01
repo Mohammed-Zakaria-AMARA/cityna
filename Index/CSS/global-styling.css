@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto;
+  }
+
+  body {
+    background-color: #b8d98d;
+    min-height: fit-content;
+  }
+  
+  a{
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    padding: 10px;
+  }
+
+  /* Header  */
+  header{
+    position: fixed;
+    width: 100%;
+    height: 107px;
+    top: 0;
+    display: flex ;
+    justify-content: space-between;
+    align-items: center;
+    padding: 64px 24px;
+    background-color: white;
+    z-index: 1;
+  }
+  
+  header .logo{
+    font-weight: 500;
+    font-size: 50px;
+  }
+
+  header div.buttons{
+    display: flex;
+    width: 159px;
+    height: 48px;
+    gap: 22px;
+  } 
+
+  .btn{
+    width: 68.50x;
+    height: 48px;
+    border-radius: 8px;
+    border: 0;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  /* Primary  */
+  .primaryBtn {
+    background-color: #346357;
+    color: white;
+  }
+  
+  .secondaryBtn {
+    background-color: #3DAD9B;
+    color: white;
+  }
