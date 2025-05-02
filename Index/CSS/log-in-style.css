@@ -96,3 +96,9 @@ main{
     width: 598px;
   }
 
+  .error-box {
+    color: #c62828;
+    margin: 0px auto;
+    border-radius: 4px;
+    font-weight: bold;
+  }

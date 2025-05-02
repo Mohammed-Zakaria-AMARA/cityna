@@ -11,102 +11,67 @@
   <header>
     <a href="./citizen-form.html" class="logo">CITYNA</a>
     <div class="buttons">
-      <a href="./log-in.html" class="btn primaryBtn">Log in</a>
+      <a href="./log-in.php" class="btn primaryBtn">Log in</a>
       <a href="./sign-up.html" class="btn secondaryBtn">Sign Up</a>
     </div>
   </header>
-
   <main>
     <div class="form-container">
       <h1>Report Form</h1>
-      <form action="submit_report.php" method="POST" enctype="multipart/form-data">
+      <form action="citizen-form.php" method="POST" id="reportForm">
         
-        <!-- ALL ORIGINAL FIELDS PRESERVED - JUST ADDED NAME ATTRIBUTES -->
-        <label>Full Name</label>
-        <input type="text" name="full_name" placeholder="Placeholder" required />
+        <label for="full_name">Full Name</label>
+        <input type="text" id="full_name" name="full_name" placeholder="Enter your full name" />
 
-        <label>Numero de Telephone</label>
-        <input type="tel" name="phone_number" placeholder="Placeholder" required />
+        <label for="phone_number">Numero de Telephone</label>
+        <input type="tel" id="phone_number" name="phone_number" placeholder="Enter your phone number" />
 
-        <!-- MODIFIED CAMERA SECTION TO ACTUAL FILE INPUT -->
         <label>Real-Time Picture</label>
-        <input type="file" name="report_image" accept="image/*" capture="environment" required />
+        <div class="camera-container">
+          <video id="cameraPreview" autoplay playsinline style="display:none;"></video>
+          <canvas id="photoCanvas" style="display:none;"></canvas>
+          <div id="cameraControls">
+            <button type="button" id="startCamera" class="btn secondaryBtn">Start Camera</button>
+            <button type="button" id="takePhoto" class="btn primaryBtn" style="display:none;">Take Photo</button>
+            <button type="button" id="retakePhoto" class="btn secondaryBtn" style="display:none;">Retake</button>
+          </div>
+          <img id="photoPreview" style="display:none;">
+          <input type="file" name="report_image" id="fileInput" accept="image/*" capture="environment" style="display:none;">
+        </div>
 
-        <label>Commune</label> 
-        <input type="text" name="commune" value="Mostaganem" required /> 
+        <label for="commune">Commune</label> 
+        <input type="text" id="commune" name="commune" value="Mostaganem" required /> 
 
-        <label>Wilaya</label>
-        <input type="text" name="wilaya" value="Mostaganem" required />
+        <label for="wilaya">Wilaya</label>
+        <input type="text" id="wilaya" name="wilaya" value="Mostaganem" required />
 
-        <label>Geolocation</label>
-        <input type="text" name="geolocation" placeholder="Use my location" />
+        <label for="geolocation">Geolocation</label>
+        <input type="text" id="geolocation" name="geolocation" placeholder="Click to use my current location" />
 
-        <label>Description</label>
-        <textarea name="description" placeholder="for more context"></textarea>
+        <label for="description">Description</label>
+        <textarea id="description" name="description" placeholder="Please provide more details about the issue"></textarea>
 
         <label for="category">Catégorie</label>
-          <select id="category" name="category" required>
-            <option value="">-- Sélectionnez une catégorie --</option>
-            <option value="Sécurité Publique">Sécurité Publique</option>
-            <option value="Propreté et environnement">Propreté et environnement</option>
-            <option value="Gaz">Gaz</option>
-            <option value="Routes et voirie">Routes et voirie</option>
-            <option value="Électricité">Électricité</option>
-            <option value="Eau">Eau</option>
-          </select>
+        <select id="category" name="category" required>
+          <option value="">-- Sélectionnez une catégorie --</option>
+          <option value="Sécurité Publique">Sécurité Publique</option>
+          <option value="Propreté et environnement">Propreté et environnement</option>
+          <option value="Gaz">Gaz</option>
+          <option value="Routes et voirie">Routes et voirie</option>
+          <option value="Électricité">Électricité</option>
+          <option value="Eau">Eau</option>
+        </select>
 
         <label for="subcategory">Sous-catégorie</label>
-          <select id="subcategory" name="subcategory" required>
+        <select id="subcategory" name="subcategory" required>
           <option value="">-- Sélectionnez une sous-catégorie --</option>
         </select>
 
         <button type="submit" class="btn primaryBtn submit">Envoyer</button>
       </form>
-      <!-- <form>
-        <label>Full Name</label>
-        <input type="text" placeholder="Placeholder" />
-
-        <label>Numero de Telephone</label>
-        <input type="tel" placeholder="Placeholder" />
-
-        <div class="camera-section">
-          <p>Real-Time Picture</p>
-          <div class="camera-icon">📷</div>
-        </div>
-
-        <label>Commune</label> 
-        <input type="text" value="Mostaganem" required /> 
-
-        <label>Wilaya</label>
-        <input type="text" value="Mostaganem" required />
-
-        <label>Geolocation</label>
-        <input type="text" placeholder="Use my location" />
-
-        <label>Description</label>
-        <textarea placeholder="for more context"></textarea>
-
-        <label for="category">Catégorie</label>
-          <select id="category" name="category" required>
-            <option value="">-- Sélectionnez une catégorie --</option>
-            <option value="Sécurité Publique">Sécurité Publique</option>
-            <option value="Propreté et environnement">Propreté et environnement</option>
-            <option value="Gaz">Gaz</option>
-            <option value="Routes et voirie">Routes et voirie</option>
-            <option value="Électricité">Électricité</option>
-            <option value="Eau">Eau</option>
-          </select>
-
-        <label for="subcategory">Sous-catégorie</label>
-          <select id="subcategory" name="subcategory" required>
-          <option value="">-- Sélectionnez une sous-catégorie --</option>
-        </select>
-
-
-        <button type="submit" class="btn primaryBtn submit">Envoyer</button>
-      </form> -->
     </div>
   </main>
   <script src="./JS/form-dropdown.js"></script>
+  <script src="./JS/camera-real-time-picture.js"></script>
 </body>
 </html>

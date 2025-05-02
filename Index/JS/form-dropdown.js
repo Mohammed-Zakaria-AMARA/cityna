@@ -68,3 +68,87 @@
         }
       });
     });
+
+    // Function to display form errors from PHP session
+document.addEventListener('DOMContentLoaded', function() {
+  // Function to get URL parameters
+  const getUrlParams = () => {
+      const params = {};
+      const queryString = window.location.search.substring(1);
+      const pairs = queryString.split('&');
+      
+      for (let i = 0; i < pairs.length; i++) {
+          const pair = pairs[i].split('=');
+          params[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1] || '');
+      }
+      
+      return params;
+  };
+
+  // Check if there are any error parameters
+  const params = getUrlParams();
+  
+  if (params.error) {
+      // Create error message container if it doesn't exist
+      let errorContainer = document.querySelector('.error-container');
+      
+      if (!errorContainer) {
+          errorContainer = document.createElement('div');
+          errorContainer.className = 'error-container';
+          errorContainer.style.backgroundColor = '#ffdddd';
+          errorContainer.style.color = '#ff0000';
+          errorContainer.style.padding = '10px';
+          errorContainer.style.marginBottom = '15px';
+          errorContainer.style.borderRadius = '5px';
+          
+          // Insert error container at the top of the form
+          const form = document.querySelector('form');
+          form.insertBefore(errorContainer, form.firstChild);
+      }
+      
+      // Display the error message
+      switch(params.error) {
+          case 'login':
+              errorContainer.textContent = 'Invalid email or password. Please try again.';
+              break;
+          case 'signup':
+              errorContainer.textContent = 'Error creating account. This email may already be registered.';
+              break;
+          case 'required':
+              errorContainer.textContent = 'Please fill in all required fields.';
+              break;
+          case 'upload':
+              errorContainer.textContent = 'There was a problem uploading your image. Please try again.';
+              break;
+          case 'report':
+              errorContainer.textContent = 'There was a problem submitting your report. Please try again.';
+              break;
+          default:
+              errorContainer.textContent = 'An error occurred. Please try again.';
+      }
+  }
+
+  // Pre-fill form fields if available from session (for when there are errors)
+  // This requires PHP to output the session data as JSON in the page
+  if (typeof formData !== 'undefined' && formData) {
+      // Loop through form data and fill inputs
+      Object.keys(formData).forEach(field => {
+          const input = document.querySelector(`[name="${field}"]`);
+          if (input) {
+              // Handle selects differently
+              if (input.tagName === 'SELECT') {
+                  for (let i = 0; i < input.options.length; i++) {
+                      if (input.options[i].value === formData[field]) {
+                          input.options[i].selected = true;
+                          break;
+                      }
+                  }
+              } else if (input.type === 'checkbox' || input.type === 'radio') {
+                  input.checked = formData[field] === 'on' || formData[field] === '1' || formData[field] === 'true';
+              } else {
+                  input.value = formData[field];
+              }
+          }
+      });
+  }
+});

@@ -67,3 +67,10 @@
     background-color: #3DAD9B;
     color: white;
   }
+  
+/* form styling*/
+
+  input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: #3DAD9B;
+  }

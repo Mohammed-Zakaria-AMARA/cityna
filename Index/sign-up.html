@@ -11,7 +11,7 @@
   <header>
     <a href="./citizen-form.html" class="logo">CITYNA</a>
     <div class="buttons">
-      <a href="./log-in.html" class="btn primaryBtn">Log in</a>
+      <a href="./log-in.php" class="btn primaryBtn">Log in</a>
       <a href="./sign-up.html" class="btn secondaryBtn">Sign Up</a>
     </div>
   </header>
@@ -19,7 +19,8 @@
   <main>
     <div class="form-container">
       <h1>Sign Up</h1>
-      <form method="POST" action="signup.php">
+      <form method="POST" action="sign-up.php">
+        <!-- <form method="POST" action="https://postman-echo.com/post" target="_blank"> -->
         <label>Full Name</label>
         <input type="text" name="fullname" placeholder="Enter your full name" required />
 
@@ -37,7 +38,7 @@
         <button type="submit" class="btn primaryBtn submit">Confirmer</button>
 
         <div class="extra-links">
-          <a href="./log-in.html">You have an account? Go to Log in</a>
+          <a href="./log-in.php">You have an account? Go to Log in</a>
         </div>
       </form>
     </div>
